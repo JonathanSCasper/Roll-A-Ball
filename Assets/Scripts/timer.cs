@@ -1,20 +1,43 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class timer : MonoBehaviour
+public class Timer : MonoBehaviour
 {
-    public GameObject playerObject;
+    public GameObject Player;
+    public TextMeshProUGUI timerText;
+    public float TotalSeconds;
+    public bool GameOn = true;
+
+    private float CurrentTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerObject.SendMessage("testMethod");
+        CurrentTime = TotalSeconds;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // New comment
+        if (GameOn)
+        {
+            if (CurrentTime > 0)
+            {
+                CurrentTime -= 1 * Time.deltaTime;
+                timerText.text = CurrentTime.ToString("f0");
+            }
+            else
+            {
+                gameObject.SendMessage("GameOver");
+            }
+        }
     }
+
+    public void EndGame()
+    {
+        GameOn = false;
+    }
+
 }
