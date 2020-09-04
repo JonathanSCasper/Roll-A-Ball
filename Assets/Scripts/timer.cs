@@ -8,7 +8,7 @@ public class Timer : MonoBehaviour
     public GameObject Player;
     public TextMeshProUGUI timerText;
     public float TotalSeconds;
-    public bool GameOn = true;
+    private bool GameOn = true;
 
     private float CurrentTime;
 

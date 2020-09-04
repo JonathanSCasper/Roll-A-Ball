@@ -474,7 +474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81515851a693ab546a7c3fb29008ef5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 15
   countText: {fileID: 1611825651}
   WinTextObject: {fileID: 1042082797}
   LoseTextObject: {fileID: 561423546}
@@ -523,8 +523,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 101359753}
   timerText: {fileID: 2055178827}
-  TotalSeconds: 10
-  GameOn: 1
+  TotalSeconds: 15
 --- !u!4 &109371270 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2572146699274637209, guid: 25ccbe86b9a24e9469fbc141bf8de5d4, type: 3}
@@ -754,8 +753,8 @@ RectTransform:
   - {fileID: 1611825650}
   - {fileID: 1042082798}
   - {fileID: 561423547}
-  - {fileID: 399553998}
   - {fileID: 2055178826}
+  - {fileID: 399553998}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -896,7 +895,7 @@ RectTransform:
   m_Children:
   - {fileID: 906352031}
   m_Father: {fileID: 245651109}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2350,7 +2349,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 245651109}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
