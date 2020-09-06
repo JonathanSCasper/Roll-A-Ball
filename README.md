@@ -1,5 +1,5 @@
 # RollABall
 
-This is a Unity game that has a ball that collects cubes.
+A Unity Game in which the player controls a ball and collects cubes.
 
 By Jonathan Casper
