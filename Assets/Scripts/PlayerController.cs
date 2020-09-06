@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public float JumpForce = 0;
+    public int scoreToWin = 8;
     public TextMeshProUGUI countText;
     public GameObject WinTextObject;
     public GameObject LoseTextObject;
@@ -94,7 +95,7 @@ public class PlayerController : MonoBehaviour
                 count++;
                 SetCountText();
             }
-            if (count >= 8)
+            if (count >= scoreToWin)
             {
                 WinGame();
             }
