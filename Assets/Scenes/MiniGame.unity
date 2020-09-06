@@ -475,10 +475,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 15
+  JumpForce: 7
   countText: {fileID: 1611825651}
   WinTextObject: {fileID: 1042082797}
   LoseTextObject: {fileID: 561423546}
   RestartButton: {fileID: 399553997}
+  isOnGround: 1
 --- !u!114 &101359760
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1148,7 +1150,7 @@ GameObject:
   - component: {fileID: 669878973}
   m_Layer: 0
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
