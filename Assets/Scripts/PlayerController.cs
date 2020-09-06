@@ -96,11 +96,12 @@ public class PlayerController : MonoBehaviour
                 WinGame();
             }
         }
+        
     }
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.name == "Ground")
+        if(collision.gameObject.tag == "Ground")
         {
             isOnGround = true;
         }
