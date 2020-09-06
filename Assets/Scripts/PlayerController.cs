@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     public GameObject WinTextObject;
     public GameObject LoseTextObject;
     public GameObject RestartButton;
+    public GameObject MainMenuButton;
     public bool isOnGround = true;
 
     private Rigidbody rb;
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour
         WinTextObject.SetActive(false);
         LoseTextObject.SetActive(false);
         RestartButton.SetActive(false);
+        MainMenuButton.SetActive(false);
+
         playerActionControls.Player.Jump.performed += _ => Jump();
     }
 
@@ -112,16 +115,23 @@ public class PlayerController : MonoBehaviour
         GameOn = false;
         gameObject.SendMessage("EndGame");
         RestartButton.SetActive(true);
+        MainMenuButton.SetActive(true);
     }
     public void GameOver()
     {
         LoseTextObject.SetActive(true);
         GameOn = false;
         RestartButton.SetActive(true);
+        MainMenuButton.SetActive(true);
     }
 
     public void RestartGame()
     {
         SceneManager.LoadScene("Minigame");
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
     }
 }
