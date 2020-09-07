@@ -1,5 +1,7 @@
 # RollABall
 
+# By Jonathan Casper
+
 A Unity Game in which the player controls a ball and collects cubes.
 
-By Jonathan Casper
+Move with WASD or arrow keys, jump with SPACEBAR
