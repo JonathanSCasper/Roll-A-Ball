@@ -42,6 +42,8 @@ public class PlayerController : MonoBehaviour
         MainMenuButton.SetActive(false);
 
         playerActionControls.Player.Jump.performed += _ => Jump();
+
+        //if(DropDownMenu)
     }
 
     private void OnEnable()

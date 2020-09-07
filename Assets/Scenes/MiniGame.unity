@@ -476,6 +476,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 15
   JumpForce: 5
+  scoreToWin: 8
   countText: {fileID: 1611825651}
   WinTextObject: {fileID: 1042082797}
   LoseTextObject: {fileID: 561423546}
