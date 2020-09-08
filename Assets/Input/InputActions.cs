@@ -49,6 +49,46 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Restart"",
+                    ""type"": ""Button"",
+                    ""id"": ""1948405e-52dc-4fa4-bfe0-82ea0e6682cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpLevel1"",
+                    ""type"": ""Button"",
+                    ""id"": ""b7776eef-4392-46a0-9a3f-5c6f82e76bd0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpLevel2"",
+                    ""type"": ""Button"",
+                    ""id"": ""de28ca81-9cb4-49d3-97b2-7ff331a8c5cb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpLevel3"",
+                    ""type"": ""Button"",
+                    ""id"": ""1a566511-2493-4363-9b10-9a7993a9792b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""JumpLevel4"",
+                    ""type"": ""Button"",
+                    ""id"": ""56a9796f-82a6-46db-b056-1ad64b0278ac"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -280,6 +320,61 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Gamepad"",
                     ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e9cda14-d0e2-4197-b70b-3a96dc97daa8"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse;Gamepad"",
+                    ""action"": ""Restart"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""11544372-15e7-42c0-87f6-4f52e11ba591"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpLevel1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""796accda-3874-4090-a624-1068df37668d"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpLevel2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a0b5ca27-da7d-4ba2-9586-36c77aba7f84"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpLevel3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""edea5dac-f349-44f9-84c6-18b87f7f40c7"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""JumpLevel4"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -861,6 +956,11 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_Restart = m_Player.FindAction("Restart", throwIfNotFound: true);
+        m_Player_JumpLevel1 = m_Player.FindAction("JumpLevel1", throwIfNotFound: true);
+        m_Player_JumpLevel2 = m_Player.FindAction("JumpLevel2", throwIfNotFound: true);
+        m_Player_JumpLevel3 = m_Player.FindAction("JumpLevel3", throwIfNotFound: true);
+        m_Player_JumpLevel4 = m_Player.FindAction("JumpLevel4", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -926,6 +1026,11 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_Restart;
+    private readonly InputAction m_Player_JumpLevel1;
+    private readonly InputAction m_Player_JumpLevel2;
+    private readonly InputAction m_Player_JumpLevel3;
+    private readonly InputAction m_Player_JumpLevel4;
     public struct PlayerActions
     {
         private @PlayerActionControls m_Wrapper;
@@ -934,6 +1039,11 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         public InputAction @Look => m_Wrapper.m_Player_Look;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @Restart => m_Wrapper.m_Player_Restart;
+        public InputAction @JumpLevel1 => m_Wrapper.m_Player_JumpLevel1;
+        public InputAction @JumpLevel2 => m_Wrapper.m_Player_JumpLevel2;
+        public InputAction @JumpLevel3 => m_Wrapper.m_Player_JumpLevel3;
+        public InputAction @JumpLevel4 => m_Wrapper.m_Player_JumpLevel4;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -955,6 +1065,21 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @Restart.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @Restart.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @Restart.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnRestart;
+                @JumpLevel1.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel1;
+                @JumpLevel1.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel1;
+                @JumpLevel1.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel1;
+                @JumpLevel2.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel2;
+                @JumpLevel2.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel2;
+                @JumpLevel2.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel2;
+                @JumpLevel3.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel3;
+                @JumpLevel3.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel3;
+                @JumpLevel3.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel3;
+                @JumpLevel4.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel4;
+                @JumpLevel4.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel4;
+                @JumpLevel4.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJumpLevel4;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -971,6 +1096,21 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @Restart.started += instance.OnRestart;
+                @Restart.performed += instance.OnRestart;
+                @Restart.canceled += instance.OnRestart;
+                @JumpLevel1.started += instance.OnJumpLevel1;
+                @JumpLevel1.performed += instance.OnJumpLevel1;
+                @JumpLevel1.canceled += instance.OnJumpLevel1;
+                @JumpLevel2.started += instance.OnJumpLevel2;
+                @JumpLevel2.performed += instance.OnJumpLevel2;
+                @JumpLevel2.canceled += instance.OnJumpLevel2;
+                @JumpLevel3.started += instance.OnJumpLevel3;
+                @JumpLevel3.performed += instance.OnJumpLevel3;
+                @JumpLevel3.canceled += instance.OnJumpLevel3;
+                @JumpLevel4.started += instance.OnJumpLevel4;
+                @JumpLevel4.performed += instance.OnJumpLevel4;
+                @JumpLevel4.canceled += instance.OnJumpLevel4;
             }
         }
     }
@@ -1131,6 +1271,11 @@ public class @PlayerActionControls : IInputActionCollection, IDisposable
         void OnLook(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnRestart(InputAction.CallbackContext context);
+        void OnJumpLevel1(InputAction.CallbackContext context);
+        void OnJumpLevel2(InputAction.CallbackContext context);
+        void OnJumpLevel3(InputAction.CallbackContext context);
+        void OnJumpLevel4(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

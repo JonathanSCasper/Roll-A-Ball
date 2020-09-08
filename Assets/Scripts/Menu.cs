@@ -8,14 +8,15 @@ public class Menu : MonoBehaviour
 {
     public GameObject StartButton;
     public GameObject OptionsButton;
-    public GameObject DropDownMenu;
     public GameObject BackButton;
+    public GameObject Title;
+    public GameObject OptionsText;
 
     // Start is called before the first frame update
     void Start()
     {
-        DropDownMenu.SetActive(false);
         BackButton.SetActive(false);
+        OptionsText.SetActive(false);
     }
 
     // Update is called once per frame
@@ -26,15 +27,16 @@ public class Menu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("Minigame");
+        SceneManager.LoadScene("Level1");
     }
 
     public void DisplayOptions()
     {
         StartButton.SetActive(false);
         OptionsButton.SetActive(false);
+        Title.SetActive(false);
 
-        DropDownMenu.SetActive(true);
+        OptionsText.SetActive(true);
         BackButton.SetActive(true);
     }
 
@@ -42,8 +44,9 @@ public class Menu : MonoBehaviour
     {
         StartButton.SetActive(true);
         OptionsButton.SetActive(true);
+        Title.SetActive(true);
 
-        DropDownMenu.SetActive(false);
+        OptionsText.SetActive(false);
         BackButton.SetActive(false);
     }
 }
