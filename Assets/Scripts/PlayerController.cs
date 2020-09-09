@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     public TextMeshProUGUI countText;
     public GameObject WinTextObject;
     public GameObject LoseTextObject;
+    public GameObject NextLevelButton;
     public GameObject RestartButton;
     public GameObject MainMenuButton;
     public bool isOnGround = true;
@@ -40,11 +41,12 @@ public class PlayerController : MonoBehaviour
         SetCountText();
         WinTextObject.SetActive(false);
         LoseTextObject.SetActive(false);
+        NextLevelButton.SetActive(false);
         RestartButton.SetActive(false);
         MainMenuButton.SetActive(false);
 
         playerActionControls.Player.Jump.performed += _ => Jump();
-        playerActionControls.Player.Restart.performed += _ => RestartLevel();
+        playerActionControls.Player.Restart.performed += _ => MainMenu();
         playerActionControls.Player.JumpLevel1.performed += _ => JumpLevel1();
         playerActionControls.Player.JumpLevel2.performed += _ => JumpLevel2();
         playerActionControls.Player.JumpLevel3.performed += _ => JumpLevel3();
@@ -97,12 +99,32 @@ public class PlayerController : MonoBehaviour
                 count++;
                 SetCountText();
             }
+            //This is so when coming in contact with a block the isOnGround bool doesn't turn true
+            if (other.gameObject.CompareTag("Ground"))
+            {
+                isOnGround = true;
+            }
+
+            if(other.gameObject.CompareTag("SpeedBoost"))
+            {
+                other.gameObject.SetActive(false);
+                speed = 30;
+            }
             if (count >= scoreToWin)
             {
                 WinGame();
             }
         }
         
+    }
+
+    // So the player cannot roll off a block and jump mid-air
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("Ground"))
+        {
+            isOnGround = false;
+        }
     }
     void SetCountText()
     {
@@ -121,20 +143,26 @@ public class PlayerController : MonoBehaviour
         WinTextObject.SetActive(true);
         isGameOn = false;
         gameObject.SendMessage("EndGame");
-        RestartButton.SetActive(true);
+
+        NextLevelButton.SetActive(true);
         MainMenuButton.SetActive(true);
     }
     public void GameOver()
     {
         LoseTextObject.SetActive(true);
         isGameOn = false;
+
         RestartButton.SetActive(true);
         MainMenuButton.SetActive(true);
     }
 
+    public void NextLevel()
+    {
+        SceneManager.LoadScene("Level2");
+    }
     public void RestartLevel()
     {
-        SceneManager.LoadScene(levelName);
+        SceneManager.LoadScene("Level1");
     }
 
     public void MainMenu()
