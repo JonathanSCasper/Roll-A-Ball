@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     public GameObject NextLevelButton;
     public GameObject RestartButton;
     public GameObject MainMenuButton;
+    public ParticleSystem Collect;
+    public ParticleSystem PoweredUp;
     public bool isOnGround = true;
 
     private Rigidbody rb;
@@ -27,7 +29,6 @@ public class PlayerController : MonoBehaviour
     private float movementX;
     private float movementY;
     private bool isGameOn = true;
-    private string levelName = "Level1";
 
     private void Awake()
     {
@@ -44,6 +45,7 @@ public class PlayerController : MonoBehaviour
         NextLevelButton.SetActive(false);
         RestartButton.SetActive(false);
         MainMenuButton.SetActive(false);
+        PoweredUp.Pause();
 
         playerActionControls.Player.Jump.performed += _ => Jump();
         playerActionControls.Player.Restart.performed += _ => MainMenu();
@@ -52,7 +54,6 @@ public class PlayerController : MonoBehaviour
         playerActionControls.Player.JumpLevel3.performed += _ => JumpLevel3();
         playerActionControls.Player.JumpLevel4.performed += _ => JumpLevel4();
 
-        //if(DropDownMenu)
     }
     private void OnEnable()
         {
@@ -109,6 +110,9 @@ public class PlayerController : MonoBehaviour
             {
                 other.gameObject.SetActive(false);
                 speed = 30;
+                Collect.Play();
+                PoweredUp.Play();
+                StartCoroutine("StopSpeedBoost");
             }
             if (count >= scoreToWin)
             {
@@ -118,6 +122,12 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    IEnumerator StopSpeedBoost()
+    {
+        yield return new WaitForSeconds(5);
+        PoweredUp.Stop();
+        speed = 15;
+    }
     // So the player cannot roll off a block and jump mid-air
     private void OnTriggerExit(Collider other)
     {
@@ -151,7 +161,6 @@ public class PlayerController : MonoBehaviour
     {
         LoseTextObject.SetActive(true);
         isGameOn = false;
-
         RestartButton.SetActive(true);
         MainMenuButton.SetActive(true);
     }
